@@ -39,7 +39,11 @@ public struct RatingBarTriangle: Shape {
 
 // Source - https://stackoverflow.com/a/63650217
 public struct RatingBarRoundedStar: Shape {
-    public var cornerRadius: CGFloat
+    let cornerRadius: CGFloat
+    
+    public init(cornerRadius: CGFloat) {
+        self.cornerRadius = cornerRadius
+    }
     
     public func path(in rect: CGRect) -> Path {
         var path = Path()
