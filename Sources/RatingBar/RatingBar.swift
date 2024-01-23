@@ -8,15 +8,37 @@
 import SwiftUI
 
 public struct RatingBar<Content: Shape>: View {
-    @Binding public var rating: Double
-    public let width: Double
-    public let height: Double
-    public let parts: Int
-    public let spacing: Double
-    public let shape: Content
-    public let fillColor: Color
-    public let backgroundColor: Color
-    public var animation: Animation = .bouncy
+    @Binding var rating: Double
+    let width: Double
+    let height: Double
+    let parts: Int
+    let spacing: Double
+    let shape: Content
+    let fillColor: Color
+    let backgroundColor: Color
+    let animation: Animation
+    
+    public init(
+        rating: Binding<Double>,
+        width: Double,
+        height: Double,
+        parts: Int,
+        spacing: Double,
+        shape: Content,
+        fillColor: Color,
+        backgroundColor: Color,
+        animation: Animation = .bouncy
+    ) {
+        self._rating = rating
+        self.width = width
+        self.height = height
+        self.parts = parts
+        self.spacing = spacing
+        self.shape = shape
+        self.fillColor = fillColor
+        self.backgroundColor = backgroundColor
+        self.animation = animation
+    }
     
     @State private var dragAmount: Double = .zero
     private var partWidth: Double {
