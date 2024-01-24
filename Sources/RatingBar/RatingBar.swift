@@ -161,6 +161,7 @@ public struct RatingBar<Content: Shape>: View {
             }
             .frame(width: partWidth, height: height)
             .clipShape(shape)
+            .animation(animation, value: dragAmount)
     }
     
     // Calculates fill amount for current shape based on its position in the row and 
@@ -173,9 +174,7 @@ public struct RatingBar<Content: Shape>: View {
         let totalWidth = width + (Double(parts) - 1) * spacing
         let newDragAmount = (rating * totalWidth) / Double(parts)
         if newDragAmount != dragAmount {
-            withAnimation(animation) {
-                dragAmount = newDragAmount
-            }
+            dragAmount = newDragAmount
         }
     }
     
