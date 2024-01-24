@@ -48,7 +48,16 @@ VStack {
 
 The view makes sure that the rating ranges in `[0, parts]`, it basically won't let the user feed erroneous values to the `rating` property externally.
 
-> Note: Sometimes the shapes might get clipped when interacting, it can be easily fixed by providing more height to the view.
+>Note 1: Sometimes the shapes might get clipped when interacting, it can be easily fixed
+>by providing more height to the view.
+
+>Note 2: You might receive 
+>
+>`onChange(of: Double) action tried to update multiple times per frame.`
+>
+> message in the console, it usually comes when the animation duration is
+>longer, but it hasn't affected the performance of the application or resulted in any
+>unintended crashes.
 
 This package also contains custom shapes like `RatingBarTriangle`, and `RatingBarRoundedStar` under the `CustomShapes.swift` file. They are publicly accessible for you to use, I will keep adding more custom shapes with time.
 
