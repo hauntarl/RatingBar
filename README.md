@@ -1,6 +1,7 @@
 # Rating Bar - SwiftUI Component
 
 > Developed by: [Sameer Mungole](https://www.linkedin.com/in/hauntarl97/)
+>
 > Available on: **iOS 17+** & **macOS 14+**
 
 An interactive rating bar that utilizes drag gestures and animations to let users leave a rating for a product.
