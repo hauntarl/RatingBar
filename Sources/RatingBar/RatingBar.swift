@@ -172,19 +172,13 @@ public struct RatingBar<Content: Shape>: View {
     
     private func updateDragAmount(for rating: Double) {
         let totalWidth = width + (Double(parts) - 1) * spacing
-        let newDragAmount = (rating * totalWidth) / Double(parts)
-        if newDragAmount != dragAmount {
-            dragAmount = newDragAmount
-        }
+        dragAmount = (rating * totalWidth) / Double(parts)
     }
     
     private func updateRating(for dragAmount: Double) {
         let totalWidth = width + (Double(parts) - 1) * spacing
         let rawRating = (dragAmount / totalWidth) * Double(parts)
-        let newRating = min(Double(parts), max(.zero, rawRating))
-        if newRating != rating {
-            rating = newRating
-        }
+        rating = min(Double(parts), max(.zero, rawRating))
     }
 }
 
