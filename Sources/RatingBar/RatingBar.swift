@@ -18,7 +18,7 @@ import SwiftUI
  The following example shows how to use the RatingBar:
  ```swift
  RatingBar(
-     rating: $rating1,
+     rating: $rating,
      shape: Capsule(),
      fillColor: .accentColor,
      backgroundColor: .primary.opacity(0.2)
@@ -74,7 +74,8 @@ public struct RatingBar<Content: Shape>: View {
         - width: Total width all of the shapes can take combined
         - height: Maximum height each shape can take
         - parts: Count of shapes you want drawn, also acts as upper limit for rating
-        - spacing: Controls the spacing between each shape, this affects the total width of the view overall
+        - spacing: Controls the spacing between each shape, this affects the total width
+            of the view overall
         - shape: Expects a `Shape` that is used of the rating system
         - fillColor: Color when the `shape` is either completely or partially filled
         - backgroundColor: Color when the `shape` is either completely or partially empty
@@ -122,8 +123,8 @@ public struct RatingBar<Content: Shape>: View {
                 }
         )
         .onAppear {
-            // When the view appears for the first time and the rating is a non-zero value,
-            // fill the rating bar accordingly
+            // When the view appears for the first time and the rating is a non-zero
+            // value, fill the rating bar accordingly
             updateDragAmount(for: rating)
         }
         .onChange(of: dragAmount) { oldValue, newValue in
@@ -139,7 +140,8 @@ public struct RatingBar<Content: Shape>: View {
         }
     }
     
-    // Each part represents an individual shape that handles it fill amount based on the drag amount value
+    // Each part represents an individual shape that handles it fill amount based on the
+    // drag amount value
     private func buildPart(_ index: Int) -> some View {
         Rectangle()
             .fill(backgroundColor)
@@ -158,7 +160,8 @@ public struct RatingBar<Content: Shape>: View {
             .clipShape(shape)
     }
     
-    // Calculates fill amount for current shape based on its position in the row and drag amount
+    // Calculates fill amount for current shape based on its position in the row and 
+    // drag amount
     private func fillAmount(_ index: Int) -> Double {
         max(.zero, dragAmount - Double(index) * (partWidth + spacing)) // lower bound
     }
