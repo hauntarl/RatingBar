@@ -134,7 +134,10 @@ public struct RatingBar<Content: Shape>: View {
             // As and when the drag amount changes, update the rating
             updateRating(for: newValue)
         }
-        .onChange(of: rating) { _, newValue in
+        .onChange(of: rating) { oldValue, newValue in
+            if oldValue == newValue {
+                return
+            }
             // As and when the rating changes (externally), update the drag amount
             updateDragAmount(for: newValue)
         }
