@@ -9,6 +9,8 @@ import SwiftUI
 
 // Source - https://sarunw.com/posts/how-to-draw-custom-paths-and-shapes-in-swiftui/
 public struct RatingBarTriangle: Shape {
+    public init() {}
+    
     public func path(in rect: CGRect) -> Path {
         Path { path in
             let width: CGFloat = rect.width
@@ -37,8 +39,10 @@ public struct RatingBarTriangle: Shape {
 }
 
 // Source - https://sarunw.com/posts/how-to-draw-custom-paths-and-shapes-in-swiftui/
-struct RatingBarHexagon: Shape {
-    func path(in rect: CGRect) -> Path {
+public struct RatingBarHexagon: Shape {
+    public init() {}
+    
+    public func path(in rect: CGRect) -> Path {
         Path { path in
             let width: CGFloat = rect.width
             let height: CGFloat = rect.height
