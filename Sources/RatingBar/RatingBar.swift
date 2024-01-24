@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 /**
  An interactive rating bar that utilizes drag gestures and animations to let users
  leave a rating for a product.
@@ -16,7 +15,17 @@ import SwiftUI
  1. Control the rating using drag gestures
  2. Control the rating by externally managing the `rating` property
  
- The following example shows a simple example of two-way interactions
+ The following example shows how to use the RatingBar:
+ ```swift
+ RatingBar(
+     rating: $rating1,
+     shape: Capsule(),
+     fillColor: .accentColor,
+     backgroundColor: .primary.opacity(0.2)
+ )
+ ```
+ 
+ The following example shows two-way interactions using the RatingBar:
  ```swift
  VStack {
      RatingBar(
@@ -40,7 +49,7 @@ import SwiftUI
  ```
  
  The view makes sure that the rating ranges in `[0, parts]`, it basically won't let
- the user feed erroneous values to `rating` property externally.
+ the user feed erroneous values to the `rating` property externally.
  
  >Note: Sometimes the shapes might get clipped when interacting, it can be easily fixed
  >by providing more height to the view.
