@@ -139,9 +139,7 @@ public struct RatingBar<Content: Shape>: View {
                 return
             }
             // As and when the rating changes (externally), update the drag amount
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                updateDragAmount(for: newValue)
-            }
+            updateDragAmount(for: newValue)
         }
     }
     
@@ -173,15 +171,21 @@ public struct RatingBar<Content: Shape>: View {
     
     private func updateDragAmount(for rating: Double) {
         let totalWidth = width + (Double(parts) - 1) * spacing
-        withAnimation(animation) {
-            dragAmount = (rating * totalWidth) / Double(parts)
+        let newDragAmount = (rating * totalWidth) / Double(parts)
+        if newDragAmount != dragAmount {
+            withAnimation(animation) {
+                dragAmount = newDragAmount
+            }
         }
     }
     
     private func updateRating(for dragAmount: Double) {
         let totalWidth = width + (Double(parts) - 1) * spacing
         let rawRating = (dragAmount / totalWidth) * Double(parts)
-        rating = min(Double(parts), max(.zero, rawRating))
+        let newRating = min(Double(parts), max(.zero, rawRating))
+        if newRating != rating {
+            rating = newRating
+        }
     }
 }
 
