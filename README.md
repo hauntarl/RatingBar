@@ -6,6 +6,8 @@
 
 An interactive rating bar that utilizes drag gestures and animations to let users leave a rating for a product.
 
+<img src="https://github.com/hauntarl/hauntarl/blob/master/RatingBar/RatingBarExamples.gif" width="250"> <img src="https://github.com/hauntarl/hauntarl/blob/master/RatingBar/RatingBarDemoApp.gif" width="250">
+
 This view enables two-way interactions:
 
 1. Control the rating using drag gestures
