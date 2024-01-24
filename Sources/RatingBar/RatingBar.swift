@@ -132,16 +132,14 @@ public struct RatingBar<Content: Shape>: View {
                 return
             }
             // As and when the drag amount changes, update the rating
-            DispatchQueue.main.async {
-                updateRating(for: newValue)
-            }
+            updateRating(for: newValue)
         }
         .onChange(of: rating) { oldValue, newValue in
             if oldValue == newValue {
                 return
             }
             // As and when the rating changes (externally), update the drag amount
-            DispatchQueue.main.async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 updateDragAmount(for: newValue)
             }
         }
